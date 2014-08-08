@@ -42,5 +42,24 @@ void Point::shift( int DY, int DX )
 	_x += DX;
 }
 
+void Point::up( int Y )
+{
+	_y -= Y;
+}
+
+void Point::down( int Y )
+{
+	_y += Y;
+}
+
+void Point::left( int X )
+{
+	_x -= X;
+}
+
+void Point::right( int X )
+{
+	_x += X;
+}
 
 } // namespace cr

@@ -20,6 +20,11 @@ public:
 	void set(int,int);
 	void shift(int,int);
 	
+    void up( int Y = 1 );
+    void down( int Y = 1 );
+    void left( int X = 1 );
+    void right( int X = 1 );
+	
 private:
 	int _y;
 	int _x;
