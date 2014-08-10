@@ -40,7 +40,7 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.cpp $(SRCDIR)/%.h
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiled "$@" successfully!"
 
-$(TESTBINDIR)/%-test : $(TARGET) $(TESTDIR)/%-test.cpp $(SRCDIR)/%.h
+$(TESTBINDIR)/%-test : $(TESTDIR)/%-test.cpp $(SRCDIR)/%.h $(TARGET)
 	@$(CC) $(CFLAGS) $^ -l$(TESTLIB) -o $@
 	@echo "Compiled "$@" successfully!"
 
