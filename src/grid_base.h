@@ -1,6 +1,8 @@
 #ifndef CR_GRID_BASE_H
 #define CR_GRID_BASE_H
 
+#include <stdexcept>
+
 namespace cr
 {
 
@@ -14,10 +16,21 @@ public:
 		: _y(Y), _x(X)
 	{}
 
-	unsigned int x(){ return _x; }
-	unsigned int y(){ return _y; }
+	unsigned int x() const { return _x; }
+	unsigned int y() const { return _y; }
+
+	T& operator()( unsigned int Y, unsigned int X )
+	{
+		return at(Y,X);
+	}
 	
-	virtual T& at( unsigned int Y, unsigned int X )=0;
+	const T& operator()( unsigned int Y, unsigned int X ) const
+	{
+		return at(Y,X);
+	}
+	
+protected:
+	virtual T& at( unsigned int Y,unsigned int X ) const =0;
 	
 private:
 	const unsigned int _y;

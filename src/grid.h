@@ -1,8 +1,6 @@
 #ifndef CR_GRID_H
 #define CR_GRID_H
 
-#include <memory>
-
 #include "grid_base.h"
 
 namespace cr
@@ -21,9 +19,12 @@ public:
 	{
 		delete[] data;
 	}
-	
-	T& at( unsigned int Y, unsigned int X )
+
+protected:
+	T& at( unsigned int Y, unsigned int X ) const
 	{
+		if( Y >= this->y() || X >= this->x() )
+			throw std::out_of_range("Grid::at");
 		return data[ this->x() * Y + X ];
 	}
 
