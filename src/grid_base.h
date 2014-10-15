@@ -15,7 +15,9 @@ public:
 	GridBase( unsigned int Y, unsigned int X )
 		: _y(Y), _x(X)
 	{}
-
+	
+	virtual ~GridBase()= default;
+	
 	unsigned int x() const { return _x; }
 	unsigned int y() const { return _y; }
 

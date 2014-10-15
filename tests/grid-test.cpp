@@ -4,6 +4,7 @@
 #include <string>
 
 #include "../src/grid.h"
+#include "../src/sub_grid.h"
 
 struct Grids
 {
@@ -23,7 +24,7 @@ struct Grids
 	cr::Grid<std::string> b;
 };
 
-BOOST_FIXTURE_TEST_SUITE(Point, Grids);
+BOOST_FIXTURE_TEST_SUITE(Grid, Grids);
 
 BOOST_AUTO_TEST_CASE(construction)
 {
@@ -69,7 +70,7 @@ BOOST_AUTO_TEST_CASE(destruction)
 {
 	cr::Grid<int> g(10,10);
 	
-	auto b = new cr::	Grid<std::string>( 100, 100 );
+	auto b = new cr::Grid<std::string>( 100, 100 );
 	delete b;
 }
 

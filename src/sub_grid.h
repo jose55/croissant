@@ -1,0 +1,39 @@
+#ifndef CR_SUB_GRID_H
+#define CR_SUB_GRID_H
+
+#include "grid_base.h"
+
+namespace cr
+{
+
+template< typename T >
+class SubGrid : public GridBase<T>
+{
+public:
+	SubGrid( GridBase<T> &referent, int shifty, int shiftx, int Y, int X )
+	: GridBase<T>( Y, X ), _referent(&referent), y_shift(shifty), x_shift(shiftx)
+	{
+	
+	}
+	
+protected:
+	T& at( unsigned int Y, unsigned int X ) const
+	{
+		if( Y >= this->y() || X >= this->x() )
+			throw std::out_of_range("SubGrid::at");
+		return (*_referent)( y_shift + Y, x_shift + X);
+	}
+
+private:
+	GridBase<T>* const _referent;
+	
+	int y_shift;
+	int x_shift;
+	
+	int _y;
+	int _x;
+};
+
+}
+
+#endif
