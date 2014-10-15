@@ -9,7 +9,7 @@
 struct SubGrids
 {
 	SubGrids()
-	: ba( 100, 100 ), a( ba, 20, 30, 40, 20 )
+	: ba( 100, 100 ), a( ba, 40, 20, 20, 30 )
 	{
 	}
 	

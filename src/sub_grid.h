@@ -10,10 +10,10 @@ template< typename T >
 class SubGrid : public GridBase<T>
 {
 public:
-	SubGrid( GridBase<T> &referent, int shifty, int shiftx, int Y, int X )
+	SubGrid( GridBase<T> &referent, int Y, int X, int shifty = 0, int shiftx = 0 )
 	: GridBase<T>( Y, X ), _referent(&referent), y_shift(shifty), x_shift(shiftx)
 	{
-	
+
 	}
 	
 protected:
