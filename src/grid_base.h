@@ -7,6 +7,9 @@ namespace cr
 {
 
 template< typename T >
+class SubGrid;
+
+template< typename T >
 class GridBase
 {
 public:
@@ -30,6 +33,8 @@ public:
 	{
 		return at(Y,X);
 	}
+	
+	virtual SubGrid<T> getSubGrid( int, int, int, int )= 0;
 	
 protected:
 	virtual T& at( unsigned int Y,unsigned int X ) const =0;

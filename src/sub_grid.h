@@ -16,6 +16,12 @@ public:
 
 	}
 	
+	SubGrid<T> getSubGrid( int Y, int X, int shifty, int shiftx )
+	{
+		// subgrid of my subgrid is my subgrid
+		return SubGrid<T>(*_referent, Y, X, y_shift + shifty, x_shift + shiftx );
+	}
+	
 protected:
 	T& at( unsigned int Y, unsigned int X ) const
 	{

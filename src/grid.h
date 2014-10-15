@@ -2,6 +2,7 @@
 #define CR_GRID_H
 
 #include "grid_base.h"
+#include "sub_grid.h"
 
 namespace cr
 {
@@ -18,6 +19,11 @@ public:
 	~Grid()
 	{
 		delete[] data;
+	}
+	
+	SubGrid<T> getSubGrid( int Y, int X, int shifty, int shiftx )
+	{
+		return SubGrid<T>(*this, Y, X, shifty, shiftx );
 	}
 
 protected:
